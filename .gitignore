@@ -1,26 +1,9 @@
-# Generated eval outputs — recreated on every benchmark run
-waves-skill-workspace/
+# Ignore everything by default
+*
 
-# Test artifacts
-*.fst
-*.vcd
-obj_dir/
-*.log
-*.csv
-simv
-
-# Python
-__pycache__/
-*.pyc
-*.pyo
-
-# Editor
-*.swp
-*.swo
-*~
-.vscode/
-.idea/
-
-# OS
-.DS_Store
-Thumbs.db
+# Skill core files only
+!SKILL.md
+!references/
+!references/*
+!references/*/*
+!.gitignore
