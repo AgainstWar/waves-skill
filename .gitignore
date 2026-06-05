@@ -1,0 +1,26 @@
+# Generated eval outputs — recreated on every benchmark run
+waves-skill-workspace/
+
+# Test artifacts
+*.fst
+*.vcd
+obj_dir/
+*.log
+*.csv
+simv
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
