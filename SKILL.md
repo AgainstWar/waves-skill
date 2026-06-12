@@ -44,21 +44,6 @@ Use this skill when the user is:
   which simulator or build system they use).
 - **Enabling wave dumps** in any simulation flow.
 
-## When NOT to Use Waveforms
-
-This skill is a supplement, not a replacement for normal debugging. **Skip
-waveform analysis when:**
-
-- The bug is obvious from code review (e.g., typo in assignment, wrong
-  constant, missing case branch).
-- The error message or log output already pinpoints the exact line and cause.
-- The issue is purely compilation/syntax (e.g., missing delimiter, undeclared identifier).
-- The user only needs help with build commands or environment setup.
-
-In these cases, fix the obvious issue first. Only generate or query waveforms
-when you need to verify signal-level behavior that cannot be determined from
-static code analysis or log output alone.
-
 ## Prerequisites
 
 Before querying waveforms, **attempt** to use MCP tools directly. Do not ask
@@ -72,14 +57,19 @@ check.
 
 ## Discretion Principle
 
-The agent decides when waveform data is needed. This skill provides the tools;
-it does not mandate their use. If you can resolve the issue through code
-review, log analysis, or static inspection alone, do so without waveforms.
+The default for any runtime debugging task is to produce and query waveform
+data. This skill provides the tools; for runtime behavior issues, their use is
+mandatory unless explicitly waived by the user.
 
-Only use waveform tools when:
-- Signal timing or transition behavior is critical to understanding the bug.
-- Static analysis or logs leave ambiguity about what actually happened.
-- The user explicitly provided or requested a waveform file.
+**Default to waveforms for:**
+- Any signal-level question ("stuck", "never goes high", "wrong output").
+- State machine or timing issues.
+- Any ambiguity about what actually happened during simulation.
+
+**Skip waveforms only for:**
+- Compilation or syntax errors.
+- The user explicitly says they already have the answer or do not want a
+  simulation.
 
 This skill runs in **single-turn, zero-interaction mode**. At no point should
 you ask the user for confirmation, permission, or missing information. If the
