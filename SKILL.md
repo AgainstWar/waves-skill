@@ -52,7 +52,8 @@ merely to increase the MCP call count.
 
 ## Report
 
-Briefly name the trace or reason it was unavailable, the decisive signal
-observation if one exists, and what it changes about the repair hypothesis.
-If waveform analysis was infeasible, proceed with logs and code rather than
-ending the repair attempt.
+If waveform generation was attempted, report the exact
+`waveform_dump_result` format in [waveform generation](references/waveform-generation.md).
+Then briefly give the decisive signal observation, if any, and what it
+changes about the repair hypothesis. If waveform analysis was infeasible,
+continue with logs and code rather than ending the repair attempt.
